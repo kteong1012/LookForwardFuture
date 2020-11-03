@@ -4,7 +4,6 @@ using System.IO;
 using System.Linq;
 using UnityEngine;
 
-
 public static class IOUtility
 {
     /// <summary>
@@ -32,6 +31,47 @@ public static class IOUtility
         }).ToArray();
         return files;
     }
+    public static FileInfo[] GetAllPitctureFiles(string dirPath)
+    {
+        if (!Directory.Exists(dirPath))
+        {
+            return null;
+        }
+        DirectoryInfo dir = new DirectoryInfo(dirPath);
+        FileInfo[] files = dir.GetFiles().Where(file =>
+        {
+            return IsPictureFile(file);
+        }).ToArray();
+        return files;
+    }
+    public static bool IsPictureFile(FileInfo file)
+    {
+        for (int i = 0; i < (int)PictureFileSufix.Count; i++)
+        {
+            if (file.Name.EndsWith($".{(PictureFileSufix)i}"))
+            {
+                return true;
+            }
+        }
+        return false;
+    }
+    public static FileInfo[] GetAllFiles(string dirName)
+    {
+        DirectoryInfo dir = new DirectoryInfo(dirName);
+        return dir.GetFiles();
+    }
+    public static bool IsVideoFile(FileInfo file)
+    {
+        for (int i = 0; i < (int)VideoFileSufix.Count; i++)
+        {
+            if (file.Name.EndsWith($".{(VideoFileSufix)i}"))
+            {
+                return true;
+            }
+        }
+        return false;
+    }
+
     public static bool Exists(string name)
     {
         return File.Exists(name);

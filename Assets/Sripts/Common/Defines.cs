@@ -16,3 +16,12 @@ public enum PictureFileSufix
     png = 1,
     Count
 }
+
+public enum FileType
+{
+    Text,
+    Json,
+    Document,
+    Picture,
+    Video,
+}

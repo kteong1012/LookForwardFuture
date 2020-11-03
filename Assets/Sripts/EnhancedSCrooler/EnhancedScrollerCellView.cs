@@ -40,5 +40,6 @@ namespace EnhancedUI.EnhancedScroller
         /// You can override it to update your cell's view UID
         /// </summary>
         public virtual void RefreshCellView() { }
+        public virtual void RefreshCellView(params object[] objs) { }
     }
 }

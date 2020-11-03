@@ -540,6 +540,13 @@ namespace EnhancedUI.EnhancedScroller
                 _activeCellViews[i].RefreshCellView();
             }
         }
+        public void RefreshActiveCellViews(params object[] objs)
+        {
+            for (var i = 0; i < _activeCellViews.Count; i++)
+            {
+                _activeCellViews[i].RefreshCellView(objs);
+            }
+        }
 
         /// <summary>
         /// Removes all cells, both active and recycled from the scroller.
