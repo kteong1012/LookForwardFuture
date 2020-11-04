@@ -81,7 +81,7 @@ public class ScrollVideosController : MonoBehaviour, IEnhancedScrollerDelegate
         }
         _scroller.ReloadData();
         _currentIndex = 0;
-        JumpTo(_currentIndex);
+        _scroller.RefreshActiveCellViews(_currentIndex);
     }
     private void OnScrollingChanged(EnhancedScroller scroller, bool scrolling)
     {

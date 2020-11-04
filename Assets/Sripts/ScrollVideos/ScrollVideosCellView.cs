@@ -89,7 +89,7 @@ public class ScrollVideosCellView : EnhancedScrollerCellView
                 transform.DOScale(2f, 0.5f);
                 if (_data.type == FileType.Video)
                 {
-                    player.Play();
+                    player.Rewind();
                 }
             }
             else
